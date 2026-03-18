@@ -624,11 +624,7 @@ button { cursor: pointer; }
   z-index: 0;
 }
 .sep-02::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(26, 18, 9, 0.55);
-  z-index: 1;
+  display: none;
 }
 .sep-02 .sep-content {
   position: relative;
