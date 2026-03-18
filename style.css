@@ -610,24 +610,10 @@ button { cursor: pointer; }
 
 /* Separador 2 — fundo escuro com detalhes dourados */
 .sep-02 {
-  background-image: url('fotos/fundo1.png');
-  background-size: cover;
-  background-position: center;
-  background-attachment: scroll;
-  position: relative;
+  background: linear-gradient(rgba(26,18,9,0.55), rgba(26,18,9,0.55)),
+              url('fotos/fundo1.png') center / cover no-repeat;
   min-height: 480px;
   height: auto;
-}
-.sep-02::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(26, 18, 9, 0.55);
-  z-index: 0;
-}
-.sep-02 * {
-  position: relative;
-  z-index: 1;
 }
 
 /* overlay classes — não usadas nos novos separadores mas mantidas por segurança */
