@@ -207,7 +207,8 @@
       <!-- Track de cards -->
       <div class="procedimentos-track">
 
-        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Toxina Botulínica', '_blank')" style="cursor:pointer">
+        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Toxina Botulínica', '_blank')" style="cursor:pointer;background-image:url('fotos/p1.jpg');background-size:cover;background-position:center;">
+          <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">01</span>
             <div class="proc-icone">✦</div>
@@ -218,7 +219,8 @@
           </div>
         </div>
 
-        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Harmonização Full Face', '_blank')" style="cursor:pointer">
+        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Harmonização Full Face', '_blank')" style="cursor:pointer;background-image:url('fotos/p2.jpg');background-size:cover;background-position:center;">
+          <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">02</span>
             <div class="proc-icone">✦</div>
@@ -229,7 +231,8 @@
           </div>
         </div>
 
-        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Perfiloplastia', '_blank')" style="cursor:pointer">
+        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Perfiloplastia', '_blank')" style="cursor:pointer;background-image:url('fotos/p3.jpg');background-size:cover;background-position:center;">
+          <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">03</span>
             <div class="proc-icone">✦</div>
@@ -240,7 +243,8 @@
           </div>
         </div>
 
-        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Otomodelação', '_blank')" style="cursor:pointer">
+        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Otomodelação', '_blank')" style="cursor:pointer;background-image:url('fotos/p4.jpg');background-size:cover;background-position:center;">
+          <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">04</span>
             <div class="proc-icone">✦</div>
@@ -251,7 +255,8 @@
           </div>
         </div>
 
-        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Rejuvenescimento Facial', '_blank')" style="cursor:pointer">
+        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Rejuvenescimento Facial', '_blank')" style="cursor:pointer;background-image:url('fotos/p7.jpg');background-size:cover;background-position:center;">
+          <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">05</span>
             <div class="proc-icone">✦</div>
@@ -262,7 +267,8 @@
           </div>
         </div>
 
-        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Harmonização Orofacial', '_blank')" style="cursor:pointer">
+        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Harmonização Orofacial', '_blank')" style="cursor:pointer;background-image:url('fotos/p6.jpg');background-size:cover;background-position:center;">
+          <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">06</span>
             <div class="proc-icone">✦</div>
@@ -307,53 +313,74 @@
        SEÇÃO 5 — RESULTADOS
   ============================================= -->
   <section class="resultados" id="resultados">
-    <span class="section-watermark" aria-hidden="true">Resultados</span>
-    <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Resultados</span>
-        <h2 class="section-title">Resultados</h2>
-        <p class="section-subtitle">Transformações reais. Histórias que inspiram.</p>
+    <div class="resultados-header reveal">
+      <span class="section-tag">Resultados</span>
+      <h2 class="section-titulo">Transformações reais</h2>
+      <p class="section-sub">Histórias que inspiram. Resultados que falam por si.</p>
+    </div>
+
+    <!-- VÍDEO DESTAQUE -->
+    <div class="resultado-video-wrap reveal">
+      <video
+        src="videos/video1.mp4"
+        class="resultado-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        webkit-playsinline
+        preload="auto"
+        poster="fotos/r1.jpg"
+      ></video>
+      <div class="resultado-video-overlay">
+        <span class="resultado-video-tag">✦ Transformação em vídeo</span>
+      </div>
+    </div>
+
+    <!-- GRID MASONRY -->
+    <div class="resultados-masonry">
+
+      <div class="resultado-item reveal-item tall">
+        <img src="fotos/r1.jpg" alt="Resultado" class="resultado-img" loading="lazy">
+        <span class="resultado-proc-tag">Rejuvenescimento Facial</span>
+        <div class="reveal-panel"><span>✦</span></div>
       </div>
 
-      <div class="resultados-grid">
-
-        <div class="resultado-item reveal-item">
-          <div class="resultado-fotos">
-            <div class="resultado-foto-wrap">
-              <img src="fotos/r1.jpg" alt="Resultado 1" class="resultado-img" loading="lazy">
-            </div>
-          </div>
-          <div class="reveal-panel"><span class="reveal-panel-texto">✦</span></div>
-        </div>
-
-        <div class="resultado-item reveal-item">
-          <div class="resultado-fotos">
-            <div class="resultado-foto-wrap">
-              <img src="fotos/r2.jpg" alt="Resultado 2" class="resultado-img" loading="lazy">
-            </div>
-          </div>
-          <div class="reveal-panel"><span class="reveal-panel-texto">✦</span></div>
-        </div>
-
-        <div class="resultado-item reveal-item">
-          <div class="resultado-fotos">
-            <div class="resultado-foto-wrap">
-              <img src="fotos/r3.jpg" alt="Resultado 3" class="resultado-img" loading="lazy">
-            </div>
-          </div>
-          <div class="reveal-panel"><span class="reveal-panel-texto">✦</span></div>
-        </div>
-
-        <div class="resultado-item reveal-item">
-          <div class="resultado-fotos">
-            <div class="resultado-foto-wrap">
-              <img src="fotos/r4.jpg" alt="Resultado 4" class="resultado-img" loading="lazy">
-            </div>
-          </div>
-          <div class="reveal-panel"><span class="reveal-panel-texto">✦</span></div>
-        </div>
-
+      <div class="resultado-item reveal-item">
+        <img src="fotos/r2.jpg" alt="Resultado" class="resultado-img" loading="lazy">
+        <span class="resultado-proc-tag">Preenchimento Labial</span>
+        <div class="reveal-panel"><span>✦</span></div>
       </div>
+
+      <div class="resultado-item reveal-item">
+        <img src="fotos/r3.jpg" alt="Resultado" class="resultado-img" loading="lazy">
+        <span class="resultado-proc-tag">Botox</span>
+        <div class="reveal-panel"><span>✦</span></div>
+      </div>
+
+      <div class="resultado-item reveal-item tall">
+        <img src="fotos/r4.jpg" alt="Resultado" class="resultado-img" loading="lazy">
+        <div class="reveal-panel"><span>✦</span></div>
+      </div>
+
+      <div class="resultado-item reveal-item">
+        <img src="fotos/r5.jpeg" alt="Resultado" class="resultado-img" loading="lazy">
+        <span class="resultado-proc-tag">Otomodelação</span>
+        <div class="reveal-panel"><span>✦</span></div>
+      </div>
+
+      <div class="resultado-item reveal-item tall">
+        <img src="fotos/r6.jpeg" alt="Resultado" class="resultado-img" loading="lazy">
+        <span class="resultado-proc-tag">Otomodelação</span>
+        <div class="reveal-panel"><span>✦</span></div>
+      </div>
+
+      <div class="resultado-item reveal-item">
+        <img src="fotos/r7.jpeg" alt="Resultado" class="resultado-img" loading="lazy">
+        <span class="resultado-proc-tag">Otomodelação</span>
+        <div class="reveal-panel"><span>✦</span></div>
+      </div>
+
     </div>
   </section>
 
@@ -449,8 +476,7 @@
         <!-- EDITAR: Logo para fundo escuro -->
         <img src="fotos/logod.png" alt="Dra. Alexia Hissa" class="footer-logo"
              onerror="this.style.display='none'">
-        <p class="footer-nome">Dra. Alexia Hissa</p>
-        <p class="footer-tagline">Harmonização Facial · CRO/RN 7403</p>
+        <img src="fotos/logod3.png" alt="Dra. Alexia Hissa" class="footer-nome-logo">
       </div>
 
       <div class="footer-col">

@@ -194,22 +194,16 @@ document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 /* ── Resultados — reveal por scroll (efeito raspar) ── */
 function initResultadosReveal() {
   const items = document.querySelectorAll('.reveal-item');
-
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+    entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const delay = (Array.from(items).indexOf(entry.target) % 2) * 120;
-        setTimeout(() => {
-          entry.target.classList.add('is-revealed');
-        }, delay);
+        const idx = Array.from(items).indexOf(entry.target);
+        const delay = (idx % 2) * 120;
+        setTimeout(() => entry.target.classList.add('is-revealed'), delay);
         observer.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.3,
-    rootMargin: '0px 0px -60px 0px'
-  });
-
+  }, { threshold: 0.2, rootMargin: '0px 0px -40px 0px' });
   items.forEach(item => observer.observe(item));
 }
 
