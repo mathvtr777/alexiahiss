@@ -179,6 +179,7 @@
           <li>Toxina Botulínica</li>
           <li>Bioestimulador de Colágeno</li>
           <li>Fios de PDO</li>
+          <li>Otomodelação</li>
         </ul>
       </div>
     </div>
@@ -234,7 +235,7 @@
             <div class="proc-icone">✦</div>
             <h3 class="proc-nome">Harmonização Full Face</h3>
             <div class="proc-linha"></div>
-            <p class="proc-desc">Equilíbrio completo para suas feições.</p>
+            <p class="proc-desc">Equilíbrio completo para o seu rosto.</p>
             <span class="proc-cta">Ver casos →</span>
           </div>
         </div>
@@ -287,12 +288,24 @@
           </div>
         </div>
 
+        <div class="proc-card" onclick="abrirModal(6)" style="cursor:pointer;background-image:url('fotos/labios1.jpg');background-size:cover;background-position:center;">
+          <div class="proc-card-overlay"></div>
+          <div class="proc-card-inner">
+            <span class="proc-numero">07</span>
+            <div class="proc-icone">✦</div>
+            <h3 class="proc-nome">Preenchimento Labial</h3>
+            <div class="proc-linha"></div>
+            <p class="proc-desc">Lábios definidos com volume natural.</p>
+            <span class="proc-cta">Ver casos →</span>
+          </div>
+        </div>
+
       </div>
 
       <!-- Progresso e contador -->
       <div class="proc-progress-bar"><div class="proc-progress-fill"></div></div>
       <div class="proc-counter">
-        <span class="proc-counter-atual">01</span> / <span>06</span>
+        <span class="proc-counter-atual">01</span> / <span>07</span>
       </div>
 
     </div>
@@ -385,6 +398,12 @@
         <div class="reveal-panel"><span>✦</span></div>
       </div>
 
+    </div>
+
+    <div class="ver-todos-wrap">
+      <button class="ver-todos-btn" onclick="abrirTodos()">
+        Ver todos os resultados
+      </button>
     </div>
   </section>
 
@@ -563,6 +582,16 @@
           Agendar este procedimento
         </a>
       </div>
+    </div>
+  </div>
+
+  <div class="todos-modal" id="todosModal">
+    <div class="todos-modal-inner">
+      <div class="todos-modal-nav">
+        <span class="todos-modal-titulo">Todos os Resultados</span>
+        <button class="todos-modal-close" onclick="fecharTodos()">✕</button>
+      </div>
+      <div class="todos-grid" id="todosGrid"></div>
     </div>
   </div>
 

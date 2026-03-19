@@ -214,56 +214,82 @@ initResultadosReveal();
 const procedimentos = [
   {
     nome: 'Toxina Botulínica',
-    fotos: [
-      'fotos/toxina botulínica/1.jpeg',
-      'fotos/toxina botulínica/2.jpeg'
+    slides: [
+      { tipo: 'foto', src: 'fotos/toxina botulínica/1.jpeg' },
+      { tipo: 'foto', src: 'fotos/toxina botulínica/2.jpeg' }
     ],
     whats: 'Olá! Tenho interesse em: Toxina Botulínica'
   },
   {
     nome: 'Harmonização Full Face',
-    fotos: [
-      'fotos/harmonizacao-full-face/1.jpg',
-      'fotos/harmonizacao-full-face/2.jpg',
-      'fotos/harmonizacao-full-face/3.jpg'
+    slides: [
+      {
+        tipo: 'caso-especial',
+        foto: 'fotos/full.jpeg',
+        texto: `Um FULL FACE vai muito além de um único ponto… é sobre olhar o rosto como um todo ✨
+
+Neste caso, realizamos um planejamento completo, respeitando a anatomia e a essência da paciente:
+
+▫️ Rinomodelação (nariz)
+▫️ Estruturação de pré-maxila e maxila
+▫️ Preenchimento labial
+▫️ Definição de mandíbula
+▫️ Projeção de queixo
+
+O resultado não é sobre mudança, e sim sobre equilíbrio, sustentação e rejuvenescimento de forma natural. Cada detalhe foi pensado para harmonizar o conjunto, trazendo mais leveza, proporção e elegância ao rosto.
+
+Porque no full face, o segredo está na técnica… mas principalmente no olhar.`
+      }
     ],
     whats: 'Olá! Tenho interesse em: Harmonização Full Face'
   },
   {
     nome: 'Perfiloplastia',
-    fotos: [
-      'fotos/Perfiloplastia/1.jpeg',
-      'fotos/Perfiloplastia/2.jpeg',
-      'fotos/Perfiloplastia/3.jpeg'
+    slides: [
+      { tipo: 'foto', src: 'fotos/Perfiloplastia/1.jpeg' },
+      { tipo: 'foto', src: 'fotos/Perfiloplastia/2.jpeg' },
+      { tipo: 'foto', src: 'fotos/Perfiloplastia/3.jpeg' },
+      { tipo: 'foto', src: 'fotos/perfi1.jpeg' }
     ],
     whats: 'Olá! Tenho interesse em: Perfiloplastia'
   },
   {
     nome: 'Otomodelação',
-    fotos: [
-      'fotos/r5.jpeg',
-      'fotos/r6.jpeg',
-      'fotos/r7.jpeg'
+    slides: [
+      { tipo: 'foto', src: 'fotos/r7.jpeg' },
+      { tipo: 'foto', src: 'fotos/correta.jpeg' },
+      { tipo: 'foto', src: 'fotos/r6.jpeg' }
     ],
     whats: 'Olá! Tenho interesse em: Otomodelação'
   },
   {
     nome: 'Rejuvenescimento Facial',
-    fotos: [
-      'fotos/Rejuvenescimento Facial/1.jpeg',
-      'fotos/Rejuvenescimento Facial/2.jpeg',
-      'fotos/Rejuvenescimento Facial/3.jpeg',
-      'fotos/Rejuvenescimento Facial/4.jpeg'
+    slides: [
+      { tipo: 'foto', src: 'fotos/Rejuvenescimento Facial/1.jpeg' },
+      { tipo: 'foto', src: 'fotos/Rejuvenescimento Facial/2.jpeg' },
+      { tipo: 'foto', src: 'fotos/Rejuvenescimento Facial/3.jpeg' },
+      { tipo: 'foto', src: 'fotos/Rejuvenescimento Facial/4.jpeg' }
     ],
     whats: 'Olá! Tenho interesse em: Rejuvenescimento Facial'
   },
   {
     nome: 'Rinomodelação',
-    fotos: [
-      'fotos/rino1.jpeg',
-      'fotos/rino2.jpeg'
+    slides: [
+      { tipo: 'foto', src: 'fotos/rino1.jpeg' },
+      { tipo: 'foto', src: 'fotos/rino2.jpeg' },
+      { tipo: 'foto', src: 'fotos/rino3.jpeg' }
     ],
     whats: 'Olá! Tenho interesse em: Rinomodelação'
+  },
+  {
+    nome: 'Preenchimento Labial',
+    slides: [
+      { tipo: 'foto', src: 'fotos/preenchimento labial/WhatsApp Image 2026-03-19 at 09.09.37.jpeg' },
+      { tipo: 'foto', src: 'fotos/preenchimento labial/WhatsApp Image 2026-03-19 at 09.09.38.jpeg' },
+      { tipo: 'foto', src: 'fotos/preenchimento labial/WhatsApp Image 2026-03-19 at 09.09.38 (1).jpeg' },
+      { tipo: 'foto', src: 'fotos/preenchimento labial/WhatsApp Image 2026-03-19 at 09.09.38 (2).jpeg' }
+    ],
+    whats: 'Olá! Tenho interesse em: Preenchimento Labial'
   }
 ];
 
@@ -280,11 +306,20 @@ function abrirModal(index) {
   titulo.textContent = proc.nome;
   whats.href = `https://wa.me/5584991766006?text=${encodeURIComponent(proc.whats)}`;
 
-  track.innerHTML = proc.fotos.map(src =>
-    `<div class="casos-slide"><img src="${src}" alt="${proc.nome}" loading="lazy"></div>`
-  ).join('');
+  track.innerHTML = proc.slides.map(slide => {
+    if (slide.tipo === 'caso-especial') {
+      return `
+        <div class="casos-slide casos-slide-especial">
+          <img src="${slide.foto}" alt="${proc.nome}" loading="lazy">
+          <div class="casos-slide-texto">
+            <p>${slide.texto.replace(/\n/g, '<br>')}</p>
+          </div>
+        </div>`;
+    }
+    return `<div class="casos-slide"><img src="${slide.src}" alt="${proc.nome}" loading="lazy"></div>`;
+  }).join('');
 
-  dots.innerHTML = proc.fotos.map((_, i) =>
+  dots.innerHTML = proc.slides.map((_, i) =>
     `<div class="casos-dot ${i === 0 ? 'active' : ''}" onclick="irParaSlide(${i})"></div>`
   ).join('');
 
@@ -296,6 +331,38 @@ function abrirModal(index) {
 
 function fecharModal() {
   document.getElementById('casosModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function abrirTodos() {
+  const modal = document.getElementById('todosModal');
+  const grid = document.getElementById('todosGrid');
+
+  grid.innerHTML = procedimentos.map(proc => {
+    const fotos = proc.slides
+      .filter(s => s.tipo === 'foto' || s.tipo === 'caso-especial')
+      .map(s => {
+        const src = s.tipo === 'caso-especial' ? s.foto : s.src;
+        return `
+          <div class="todos-foto-item">
+            <img src="${src}" alt="${proc.nome}" loading="lazy">
+            <span class="todos-foto-label">${proc.nome}</span>
+          </div>`;
+      }).join('');
+
+    return `
+      <div class="todos-categoria">
+        <div class="todos-categoria-titulo">${proc.nome}</div>
+        <div class="todos-fotos-grid">${fotos}</div>
+      </div>`;
+  }).join('');
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function fecharTodos() {
+  document.getElementById('todosModal').classList.remove('open');
   document.body.style.overflow = '';
 }
 
