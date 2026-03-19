@@ -154,23 +154,31 @@
         </div>
       </div>
 
-      <div class="sobre-texto reveal reveal-delay">
-        <span class="section-tag">Sobre</span>
+      <div class="sobre-conteudo reveal reveal-delay">
+        <span class="sobre-tag">Sobre</span>
         <h2 class="sobre-titulo">Dra. Alexia Hissa</h2>
-        <p class="sobre-subtitulo"><em>Especialista em Harmonização Facial</em></p>
 
-        <!-- EDITAR: Texto da seção Sobre (bio completa) -->
-        <p class="sobre-bio">
-          Com formação especializada e olhar clínico apurado, a Dra. Alexia Hissa dedica sua prática a resultados que realçam a beleza natural de cada paciente. Sua abordagem combina técnica precisa com escuta ativa — porque cada rosto conta uma história única.
+        <p class="sobre-texto">
+          Cirurgiã-dentista com formação avançada em estética facial e residência em Harmonização Orofacial. Seu trabalho é marcado por um olhar estético refinado, técnicas seguras e resultados naturais.
         </p>
 
-        <ul class="especialidades">
-          <li><span class="bullet-ouro" aria-hidden="true">✦</span> Toxina Botulínica (Botox)</li>
-          <li><span class="bullet-ouro" aria-hidden="true">✦</span> Harmonização Full Face</li>
-          <li><span class="bullet-ouro" aria-hidden="true">✦</span> Perfiloplastia</li>
-          <li><span class="bullet-ouro" aria-hidden="true">✦</span> Otomodelação</li>
-          <li><span class="bullet-ouro" aria-hidden="true">✦</span> Rejuvenescimento Facial</li>
-          <li><span class="bullet-ouro" aria-hidden="true">✦</span> Harmonização Orofacial</li>
+        <div class="sobre-divider">
+          <span>Referência em Harmonização Orofacial</span>
+        </div>
+
+        <p class="sobre-texto">
+          Cada protocolo é planejado de forma individualizada, com técnicas seguras e modernas, aliadas à escuta ativa — respeitando a essência, os traços e a história de cada paciente.
+        </p>
+
+        <div class="sobre-lista-titulo">Procedimentos</div>
+        <ul class="sobre-lista">
+          <li>Harmonização Orofacial</li>
+          <li>Preenchimento Labial</li>
+          <li>Rinomodelação</li>
+          <li>Perfiloplastia</li>
+          <li>Toxina Botulínica</li>
+          <li>Bioestimulador de Colágeno</li>
+          <li>Fios de PDO</li>
         </ul>
       </div>
     </div>
@@ -185,7 +193,7 @@
     <div class="sep-content reveal">
       <span class="sep-linha" aria-hidden="true"></span>
       <blockquote class="sep-frase">
-        "Cada detalhe do seu rosto merece ser celebrado."
+        "O equilíbrio do seu rosto, respeitando a sua essência."
       </blockquote>
       <span class="sep-linha" aria-hidden="true"></span>
     </div>
@@ -207,7 +215,7 @@
       <!-- Track de cards -->
       <div class="procedimentos-track">
 
-        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Toxina Botulínica', '_blank')" style="cursor:pointer;background-image:url('fotos/p1.jpg');background-size:cover;background-position:center;">
+        <div class="proc-card" onclick="abrirModal(0)" style="cursor:pointer;background-image:url('fotos/p1.jpg');background-size:cover;background-position:center;">
           <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">01</span>
@@ -215,11 +223,11 @@
             <h3 class="proc-nome">Toxina Botulínica</h3>
             <div class="proc-linha"></div>
             <p class="proc-desc">Expressão natural, sem marcas de tensão.</p>
-            <span class="proc-cta">Saiba mais →</span>
+            <span class="proc-cta">Ver casos →</span>
           </div>
         </div>
 
-        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Harmonização Full Face', '_blank')" style="cursor:pointer;background-image:url('fotos/p2.jpg');background-size:cover;background-position:center;">
+        <div class="proc-card" onclick="abrirModal(1)" style="cursor:pointer;background-image:url('fotos/p2.jpg');background-size:cover;background-position:center;">
           <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">02</span>
@@ -227,11 +235,11 @@
             <h3 class="proc-nome">Harmonização Full Face</h3>
             <div class="proc-linha"></div>
             <p class="proc-desc">Equilíbrio completo para suas feições.</p>
-            <span class="proc-cta">Saiba mais →</span>
+            <span class="proc-cta">Ver casos →</span>
           </div>
         </div>
 
-        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Perfiloplastia', '_blank')" style="cursor:pointer;background-image:url('fotos/p3.jpg');background-size:cover;background-position:center;">
+        <div class="proc-card" onclick="abrirModal(2)" style="cursor:pointer;background-image:url('fotos/p3.jpg');background-size:cover;background-position:center;">
           <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">03</span>
@@ -239,11 +247,11 @@
             <h3 class="proc-nome">Perfiloplastia</h3>
             <div class="proc-linha"></div>
             <p class="proc-desc">Perfil refinado e elegante, sem cirurgia.</p>
-            <span class="proc-cta">Saiba mais →</span>
+            <span class="proc-cta">Ver casos →</span>
           </div>
         </div>
 
-        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Otomodelação', '_blank')" style="cursor:pointer;background-image:url('fotos/p4.jpg');background-size:cover;background-position:center;">
+        <div class="proc-card" onclick="abrirModal(3)" style="cursor:pointer;background-image:url('fotos/p4.jpg');background-size:cover;background-position:center;">
           <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">04</span>
@@ -251,11 +259,11 @@
             <h3 class="proc-nome">Otomodelação</h3>
             <div class="proc-linha"></div>
             <p class="proc-desc">Orelhas reposicionadas com leveza.</p>
-            <span class="proc-cta">Saiba mais →</span>
+            <span class="proc-cta">Ver casos →</span>
           </div>
         </div>
 
-        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Rejuvenescimento Facial', '_blank')" style="cursor:pointer;background-image:url('fotos/p7.jpg');background-size:cover;background-position:center;">
+        <div class="proc-card" onclick="abrirModal(4)" style="cursor:pointer;background-image:url('fotos/p7.jpg');background-size:cover;background-position:center;">
           <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">05</span>
@@ -263,19 +271,19 @@
             <h3 class="proc-nome">Rejuvenescimento Facial</h3>
             <div class="proc-linha"></div>
             <p class="proc-desc">Pele renovada, olhar mais jovem.</p>
-            <span class="proc-cta">Saiba mais →</span>
+            <span class="proc-cta">Ver casos →</span>
           </div>
         </div>
 
-        <div class="proc-card" onclick="window.open('https://wa.me/5584991766006?text=Ol%C3%A1! Tenho interesse em saber mais sobre o procedimento: Harmonização Orofacial', '_blank')" style="cursor:pointer;background-image:url('fotos/p6.jpg');background-size:cover;background-position:center;">
+        <div class="proc-card" onclick="abrirModal(5)" style="cursor:pointer;background-image:url('fotos/p6.jpg');background-size:cover;background-position:center;">
           <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">06</span>
             <div class="proc-icone">✦</div>
-            <h3 class="proc-nome">Harmonização Orofacial</h3>
+            <h3 class="proc-nome">Rinomodelação</h3>
             <div class="proc-linha"></div>
-            <p class="proc-desc">Sorriso e rosto em perfeita harmonia.</p>
-            <span class="proc-cta">Saiba mais →</span>
+            <p class="proc-desc">Nariz reposicionado sem cirurgia.</p>
+            <span class="proc-cta">Ver casos →</span>
           </div>
         </div>
 
@@ -534,6 +542,29 @@
     <span class="whats-tooltip">Agendar agora</span>
   </a>
 
+
+  <!-- MODAL CASOS -->
+  <div class="casos-modal" id="casosModal">
+    <div class="casos-modal-overlay" onclick="fecharModal()"></div>
+    <div class="casos-modal-box">
+      <button class="casos-modal-close" onclick="fecharModal()">✕</button>
+      <div class="casos-modal-header">
+        <span class="casos-modal-tag">Casos</span>
+        <h3 class="casos-modal-titulo" id="modalTitulo"></h3>
+      </div>
+      <div class="casos-carrossel">
+        <div class="casos-track" id="casosTrack"></div>
+        <button class="casos-nav prev" onclick="navCarrossel(-1)">‹</button>
+        <button class="casos-nav next" onclick="navCarrossel(1)">›</button>
+      </div>
+      <div class="casos-dots" id="casosDots"></div>
+      <div class="casos-modal-footer">
+        <a id="casosWhats" href="https://wa.me/5584991766006" target="_blank" class="casos-btn-agendar">
+          Agendar este procedimento
+        </a>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
 </body>

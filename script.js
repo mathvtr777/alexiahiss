@@ -208,3 +208,114 @@ function initResultadosReveal() {
 }
 
 initResultadosReveal();
+
+
+/* ── Modal de Casos por Procedimento ── */
+const procedimentos = [
+  {
+    nome: 'Toxina Botulínica',
+    fotos: [
+      'fotos/toxina botulínica/1.jpeg',
+      'fotos/toxina botulínica/2.jpeg'
+    ],
+    whats: 'Olá! Tenho interesse em: Toxina Botulínica'
+  },
+  {
+    nome: 'Harmonização Full Face',
+    fotos: [
+      'fotos/harmonizacao-full-face/1.jpg',
+      'fotos/harmonizacao-full-face/2.jpg',
+      'fotos/harmonizacao-full-face/3.jpg'
+    ],
+    whats: 'Olá! Tenho interesse em: Harmonização Full Face'
+  },
+  {
+    nome: 'Perfiloplastia',
+    fotos: [
+      'fotos/Perfiloplastia/1.jpeg',
+      'fotos/Perfiloplastia/2.jpeg',
+      'fotos/Perfiloplastia/3.jpeg'
+    ],
+    whats: 'Olá! Tenho interesse em: Perfiloplastia'
+  },
+  {
+    nome: 'Otomodelação',
+    fotos: [
+      'fotos/r5.jpeg',
+      'fotos/r6.jpeg',
+      'fotos/r7.jpeg'
+    ],
+    whats: 'Olá! Tenho interesse em: Otomodelação'
+  },
+  {
+    nome: 'Rejuvenescimento Facial',
+    fotos: [
+      'fotos/Rejuvenescimento Facial/1.jpeg',
+      'fotos/Rejuvenescimento Facial/2.jpeg',
+      'fotos/Rejuvenescimento Facial/3.jpeg',
+      'fotos/Rejuvenescimento Facial/4.jpeg'
+    ],
+    whats: 'Olá! Tenho interesse em: Rejuvenescimento Facial'
+  },
+  {
+    nome: 'Rinomodelação',
+    fotos: [
+      'fotos/rino1.jpeg',
+      'fotos/rino2.jpeg'
+    ],
+    whats: 'Olá! Tenho interesse em: Rinomodelação'
+  }
+];
+
+let currentSlide = 0;
+
+function abrirModal(index) {
+  const proc = procedimentos[index];
+  const modal = document.getElementById('casosModal');
+  const track = document.getElementById('casosTrack');
+  const dots = document.getElementById('casosDots');
+  const titulo = document.getElementById('modalTitulo');
+  const whats = document.getElementById('casosWhats');
+
+  titulo.textContent = proc.nome;
+  whats.href = `https://wa.me/5584991766006?text=${encodeURIComponent(proc.whats)}`;
+
+  track.innerHTML = proc.fotos.map(src =>
+    `<div class="casos-slide"><img src="${src}" alt="${proc.nome}" loading="lazy"></div>`
+  ).join('');
+
+  dots.innerHTML = proc.fotos.map((_, i) =>
+    `<div class="casos-dot ${i === 0 ? 'active' : ''}" onclick="irParaSlide(${i})"></div>`
+  ).join('');
+
+  currentSlide = 0;
+  track.style.transform = 'translateX(0)';
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function fecharModal() {
+  document.getElementById('casosModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function navCarrossel(dir) {
+  const track = document.getElementById('casosTrack');
+  const slides = track.querySelectorAll('.casos-slide');
+  const dots = document.querySelectorAll('.casos-dot');
+  currentSlide = Math.max(0, Math.min(slides.length - 1, currentSlide + dir));
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+
+function irParaSlide(index) {
+  const track = document.getElementById('casosTrack');
+  const dots = document.querySelectorAll('.casos-dot');
+  currentSlide = index;
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+}
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') fecharModal();
+});
