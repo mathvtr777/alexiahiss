@@ -960,16 +960,17 @@ button { cursor: pointer; }
 /* Mobile — scroll horizontal nativo */
 @media (max-width: 768px) {
   .procedimentos-scroll-section {
-    height: calc(100vh + (6 - 1) * 280px);
+    height: auto;
+    padding: 60px 0 80px;
   }
-  .proc-header { padding: 0 24px; }
+  .proc-header { padding: 0 24px; margin-bottom: 32px; }
   .procedimentos-track {
-    padding: 0 24px;
+    padding: 0 24px 40px 24px;
     gap: 16px;
   }
-  .proc-card { flex: 0 0 72vw; height: 360px; }
-  .proc-progress-bar { left: 24px; right: 24px; }
-  .proc-counter { right: 24px; }
+  .proc-card { flex: 0 0 85vw; height: 380px; max-width: 320px; }
+  .proc-progress-bar { left: 24px; right: 24px; bottom: 24px; }
+  .proc-counter { right: 24px; top: 24px; }
 }
 
 
