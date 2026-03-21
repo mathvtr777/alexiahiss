@@ -468,3 +468,28 @@ document.addEventListener('keydown', e => {
     });
   }, { passive: true });
 })();
+
+/* ── Depoimentos — entrada animada dos balões (IntersectionObserver) ── */
+(function initDepoimentosObserver() {
+  const depMsgs = document.querySelectorAll('.dep-msg');
+  const depChat = document.querySelector('.dep-chat');
+  const section = document.getElementById('depoimentos');
+
+  if (depChat && depMsgs.length && section) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          depMsgs.forEach((msg, i) => {
+            setTimeout(() => {
+              msg.classList.add('visible');
+              if (depChat) depChat.scrollTop = depChat.scrollHeight;
+            }, i * 250); 
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(section);
+  }
+})();
