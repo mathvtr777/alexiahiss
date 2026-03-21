@@ -281,7 +281,7 @@ Porque no full face, o segredo está na técnica… mas principalmente no olhar.
     nome: 'Otomodelação',
     slides: [
       { tipo: 'foto', src: 'fotos/r7.jpeg' },
-      { tipo: 'foto', src: 'fotos/correta.jpeg' },
+      { tipo: 'foto', src: 'fotos/correta.jpeg', label: 'Feedback Otomodelação' },
       { tipo: 'foto', src: 'fotos/r6.jpeg' }
     ],
     whats: 'Olá! Tenho interesse em: Otomodelação'
@@ -340,7 +340,11 @@ function abrirModal(index) {
           </div>
         </div>`;
     }
-    return `<div class="casos-slide"><img src="${slide.src}" alt="${proc.nome}" loading="lazy"></div>`;
+    return `
+      <div class="casos-slide">
+        <img src="${slide.src}" alt="${proc.nome}" loading="lazy">
+        ${slide.label ? `<span class="resultado-proc-tag casos-modal-inner-tag">${slide.label}</span>` : ''}
+      </div>`;
   }).join('');
 
   dots.innerHTML = proc.slides.map((_, i) =>
@@ -370,7 +374,7 @@ function abrirTodos() {
         return `
           <div class="todos-foto-item">
             <img src="${src}" alt="${proc.nome}" loading="lazy">
-            <span class="todos-foto-label">${proc.nome}</span>
+            <span class="todos-foto-label">${s.label || proc.nome}</span>
           </div>`;
       }).join('');
 
