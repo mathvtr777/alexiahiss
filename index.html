@@ -29,7 +29,7 @@
   <nav class="navbar" id="navbar">
     <div class="nav-inner">
       <a href="#inicio" class="nav-brand">
-        <img src="fotos/logod3.png" alt="Dra. Alexia Hissa" class="nav-logo">
+        <img src="fotos/logook.png" alt="Dra. Alexia Hissa" class="nav-logo">
       </a>
 
       <ul class="nav-links">
@@ -42,7 +42,7 @@
 
       <a href="https://wa.me/5584991766006" class="nav-cta" target="_blank" rel="noopener">
         <!-- EDITAR: Número do WhatsApp -->
-        Agendar Consulta
+        Agendar pelo WhatsApp
       </a>
 
       <button class="nav-hamburger" id="navHamburger" aria-label="Menu">
@@ -63,7 +63,7 @@
     </ul>
     <a href="https://wa.me/5584991766006" class="drawer-cta" target="_blank" rel="noopener">
       <!-- EDITAR: Número do WhatsApp -->
-      Agendar Consulta
+      Agendar pelo WhatsApp
     </a>
   </div>
   <div class="nav-overlay" id="navOverlay"></div>
@@ -74,6 +74,9 @@
   ============================================= -->
   <section class="hero" id="inicio">
     <div class="hero-bg-blob" aria-hidden="true"></div>
+
+    <!-- Imagem marca d'água de fundo -->
+    <img src="fotos/fundohero.png" alt="" class="hero-img-watermark" aria-hidden="true">
 
     <!-- Texto marca d'água de fundo -->
     <span class="section-watermark" aria-hidden="true">Alexia</span>
@@ -98,7 +101,7 @@
         <div class="hero-btns">
           <!-- EDITAR: Número do WhatsApp -->
           <a href="https://wa.me/5584991766006" class="btn-primary" target="_blank" rel="noopener">
-            Agendar minha consulta
+            Agendar pelo WhatsApp
           </a>
           <a href="#procedimentos" class="btn-ghost">
             Ver procedimentos
@@ -149,6 +152,7 @@
         <div class="sobre-foto-wrap">
           <!-- EDITAR: Substituir pela sua foto da seção Sobre -->
           <img src="fotos/doutora.jpg" alt="Dra. Alexia Hissa" loading="lazy"
+               class="parallax-img" data-speed="0.08"
                onerror="this.src='fotos/doutora.jpg'">
           <span class="cro-badge">CRO/RN 7403</span>
         </div>
@@ -216,10 +220,46 @@
       <!-- Track de cards -->
       <div class="procedimentos-track">
 
-        <div class="proc-card" onclick="abrirModal(0)" style="cursor:pointer;background-image:url('fotos/p1.jpg');background-size:cover;background-position:center;">
+        <div class="proc-card" onclick="abrirModal(2)" style="cursor:pointer;background-image:url('fotos/p3.jpg');background-size:cover;background-position:center;">
           <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">01</span>
+            <div class="proc-icone">✦</div>
+            <h3 class="proc-nome">Perfiloplastia</h3>
+            <div class="proc-linha"></div>
+            <p class="proc-desc">Perfil em equilíbrio, beleza em harmonia.</p>
+            <span class="proc-cta">Ver casos →</span>
+          </div>
+        </div>
+
+        <div class="proc-card" onclick="abrirModal(6)" style="cursor:pointer;background-image:url('fotos/labios1.jpg');background-size:cover;background-position:center;">
+          <div class="proc-card-overlay"></div>
+          <div class="proc-card-inner">
+            <span class="proc-numero">02</span>
+            <div class="proc-icone">✦</div>
+            <h3 class="proc-nome">Preenchimento Labial</h3>
+            <div class="proc-linha"></div>
+            <p class="proc-desc">Lábios definidos com volume natural.</p>
+            <span class="proc-cta">Ver casos →</span>
+          </div>
+        </div>
+
+        <div class="proc-card" onclick="abrirModal(5)" style="cursor:pointer;background-image:url('fotos/p6.jpg');background-size:cover;background-position:center;">
+          <div class="proc-card-overlay"></div>
+          <div class="proc-card-inner">
+            <span class="proc-numero">03</span>
+            <div class="proc-icone">✦</div>
+            <h3 class="proc-nome">Rinomodelação</h3>
+            <div class="proc-linha"></div>
+            <p class="proc-desc">Nariz reposicionado sem cirurgia.</p>
+            <span class="proc-cta">Ver casos →</span>
+          </div>
+        </div>
+
+        <div class="proc-card" onclick="abrirModal(0)" style="cursor:pointer;background-image:url('fotos/p1.jpg');background-size:cover;background-position:center;">
+          <div class="proc-card-overlay"></div>
+          <div class="proc-card-inner">
+            <span class="proc-numero">04</span>
             <div class="proc-icone">✦</div>
             <h3 class="proc-nome">Toxina Botulínica</h3>
             <div class="proc-linha"></div>
@@ -231,7 +271,7 @@
         <div class="proc-card" onclick="abrirModal(1)" style="cursor:pointer;background-image:url('fotos/p2.jpg');background-size:cover;background-position:center;">
           <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
-            <span class="proc-numero">02</span>
+            <span class="proc-numero">05</span>
             <div class="proc-icone">✦</div>
             <h3 class="proc-nome">Harmonização Full Face</h3>
             <div class="proc-linha"></div>
@@ -240,34 +280,10 @@
           </div>
         </div>
 
-        <div class="proc-card" onclick="abrirModal(2)" style="cursor:pointer;background-image:url('fotos/p3.jpg');background-size:cover;background-position:center;">
-          <div class="proc-card-overlay"></div>
-          <div class="proc-card-inner">
-            <span class="proc-numero">03</span>
-            <div class="proc-icone">✦</div>
-            <h3 class="proc-nome">Perfiloplastia</h3>
-            <div class="proc-linha"></div>
-            <p class="proc-desc">Perfil refinado e elegante, sem cirurgia.</p>
-            <span class="proc-cta">Ver casos →</span>
-          </div>
-        </div>
-
-        <div class="proc-card" onclick="abrirModal(3)" style="cursor:pointer;background-image:url('fotos/p4.jpg');background-size:cover;background-position:center;">
-          <div class="proc-card-overlay"></div>
-          <div class="proc-card-inner">
-            <span class="proc-numero">04</span>
-            <div class="proc-icone">✦</div>
-            <h3 class="proc-nome">Otomodelação</h3>
-            <div class="proc-linha"></div>
-            <p class="proc-desc">Orelhas reposicionadas com leveza.</p>
-            <span class="proc-cta">Ver casos →</span>
-          </div>
-        </div>
-
         <div class="proc-card" onclick="abrirModal(4)" style="cursor:pointer;background-image:url('fotos/p7.jpg');background-size:cover;background-position:center;">
           <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
-            <span class="proc-numero">05</span>
+            <span class="proc-numero">06</span>
             <div class="proc-icone">✦</div>
             <h3 class="proc-nome">Rejuvenescimento Facial</h3>
             <div class="proc-linha"></div>
@@ -276,26 +292,14 @@
           </div>
         </div>
 
-        <div class="proc-card" onclick="abrirModal(5)" style="cursor:pointer;background-image:url('fotos/p6.jpg');background-size:cover;background-position:center;">
-          <div class="proc-card-overlay"></div>
-          <div class="proc-card-inner">
-            <span class="proc-numero">06</span>
-            <div class="proc-icone">✦</div>
-            <h3 class="proc-nome">Rinomodelação</h3>
-            <div class="proc-linha"></div>
-            <p class="proc-desc">Nariz reposicionado sem cirurgia.</p>
-            <span class="proc-cta">Ver casos →</span>
-          </div>
-        </div>
-
-        <div class="proc-card" onclick="abrirModal(6)" style="cursor:pointer;background-image:url('fotos/labios1.jpg');background-size:cover;background-position:center;">
+        <div class="proc-card" onclick="abrirModal(3)" style="cursor:pointer;background-image:url('fotos/p4.jpg');background-size:cover;background-position:center;">
           <div class="proc-card-overlay"></div>
           <div class="proc-card-inner">
             <span class="proc-numero">07</span>
             <div class="proc-icone">✦</div>
-            <h3 class="proc-nome">Preenchimento Labial</h3>
+            <h3 class="proc-nome">Otomodelação</h3>
             <div class="proc-linha"></div>
-            <p class="proc-desc">Lábios definidos com volume natural.</p>
+            <p class="proc-desc">Orelhas reposicionadas com leveza.</p>
             <span class="proc-cta">Ver casos →</span>
           </div>
         </div>
@@ -316,7 +320,7 @@
        SEPARADOR COM FOTO 2
   ============================================= -->
   <div class="separador sep-02">
-    <img src="fotos/fundo2.png" alt="" class="sep-bg-img" loading="lazy">
+    <img src="fotos/fundo2.png" alt="" class="sep-bg-img parallax-img" data-speed="0.15" loading="lazy">
     <div class="sep-overlay sep-overlay-lilas"></div>
     <div class="sep-content sep-content-center reveal">
       <blockquote class="sep-frase sep-frase-center">
@@ -324,7 +328,7 @@
       </blockquote>
       <!-- EDITAR: Número do WhatsApp -->
       <a href="https://wa.me/5584991766006" class="btn-sep-cta" target="_blank" rel="noopener">
-        Agendar consulta
+        Agendar pelo WhatsApp
       </a>
     </div>
   </div>
@@ -361,6 +365,12 @@
     <!-- GRID MASONRY -->
     <div class="resultados-masonry">
 
+      <div class="resultado-item reveal-item">
+        <img src="fotos/r3.jpg" alt="Resultado" class="resultado-img" loading="lazy">
+        <span class="resultado-proc-tag">Botox</span>
+        <div class="reveal-panel"><span>✦</span></div>
+      </div>
+
       <div class="resultado-item reveal-item tall">
         <img src="fotos/r1.jpg" alt="Resultado" class="resultado-img" loading="lazy">
         <span class="resultado-proc-tag">Rejuvenescimento Facial</span>
@@ -374,7 +384,7 @@
       </div>
 
       <div class="resultado-item reveal-item">
-        <img src="fotos/r3.jpg" alt="Resultado" class="resultado-img" loading="lazy">
+        <img src="fotos/botox.jpeg" alt="Resultado" class="resultado-img" loading="lazy">
         <span class="resultado-proc-tag">Botox</span>
         <div class="reveal-panel"><span>✦</span></div>
       </div>
@@ -407,6 +417,14 @@
     </div>
   </section>
 
+  <!-- =============================================
+       SELO DE TRANSIÇÃO
+  ============================================= -->
+  <div class="section-transition-seal">
+    <div class="seal-bg">
+      <img src="fotos/moldura1.png" alt="Selo Premium" class="seal-img">
+    </div>
+  </div>
 
   <!-- =============================================
        SEÇÃO 6 — DEPOIMENTOS
@@ -477,7 +495,7 @@
 
       <!-- EDITAR: Número do WhatsApp -->
       <a href="https://wa.me/5584991766006" class="btn-cta-whats" target="_blank" rel="noopener">
-        💬 Agendar pelo WhatsApp
+        Agendar pelo WhatsApp
       </a>
 
       <p class="cta-instagram">
@@ -499,7 +517,7 @@
         <!-- EDITAR: Logo para fundo escuro -->
         <img src="fotos/logod.png" alt="Dra. Alexia Hissa" class="footer-logo"
              onerror="this.style.display='none'">
-        <img src="fotos/logod3.png" alt="Dra. Alexia Hissa" class="footer-nome-logo">
+        <img src="fotos/logook.png" alt="Dra. Alexia Hissa" class="footer-nome-logo">
       </div>
 
       <div class="footer-col">
@@ -510,7 +528,7 @@
           <li><a href="#procedimentos">Procedimentos</a></li>
           <li><a href="#resultados">Resultados</a></li>
           <!-- EDITAR: Número do WhatsApp -->
-          <li><a href="https://wa.me/5584991766006" target="_blank" rel="noopener">Agendar</a></li>
+          <li><a href="https://wa.me/5584991766006" target="_blank" rel="noopener">Agendar pelo WhatsApp</a></li>
         </ul>
       </div>
 
@@ -579,7 +597,7 @@
       <div class="casos-dots" id="casosDots"></div>
       <div class="casos-modal-footer">
         <a id="casosWhats" href="https://wa.me/5584991766006" target="_blank" class="casos-btn-agendar">
-          Agendar este procedimento
+          Agendar pelo WhatsApp
         </a>
       </div>
     </div>

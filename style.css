@@ -66,11 +66,30 @@ button { cursor: pointer; }
 .btn-primary {
   background: var(--dourado-forte);
   color: var(--branco);
+  position: relative;
+  overflow: hidden;
 }
 .btn-primary:hover {
   background: #BD7A2A;
   transform: translateY(-2px);
   box-shadow: 0 6px 24px rgba(212,145,58,0.35);
+}
+
+/* Animação de Brilho dos Botões */
+@keyframes shineEffect {
+  0% { transform: translateX(-150%) skewX(-15deg); }
+  20%, 100% { transform: translateX(250%) skewX(-15deg); }
+}
+.btn-primary::after, .btn-cta-whats::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  animation: shineEffect 4s infinite cubic-bezier(0.19, 1, 0.22, 1);
+  pointer-events: none;
 }
 .btn-ghost {
   background: transparent;
@@ -129,6 +148,20 @@ button { cursor: pointer; }
   line-height: 1;
 }
 
+.hero-img-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  height: 90%;
+  object-fit: contain;
+  opacity: 0.05;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
 /* ── Reveal (scroll animation) ── */
 .reveal {
   opacity: 0;
@@ -174,12 +207,18 @@ button { cursor: pointer; }
   align-items: center;
 }
 .nav-logo {
-  height: 64px;
+  height: 60px;
+  max-width: 75vw;
   width: auto;
   object-fit: contain;
   object-position: left center;
   mix-blend-mode: multiply;
-  margin-left: -12px;
+}
+
+@media (min-width: 1024px) {
+  .nav-logo {
+    height: 64px;
+  }
 }
 .nav-links {
   display: none;
@@ -280,9 +319,10 @@ button { cursor: pointer; }
   color: var(--branco);
   font-size: 14px;
   font-weight: 500;
-  padding: 13px 28px;
+  padding: 13px 32px;
   border-radius: 50px;
   transition: var(--transition);
+  white-space: nowrap;
 }
 .drawer-cta:hover { background: #BD7A2A; }
 .nav-overlay {
@@ -670,6 +710,7 @@ button { cursor: pointer; }
   object-fit: cover;
   object-position: center;
   z-index: 0;
+  will-change: transform;
 }
 .sep-02::before {
   content: '';
@@ -729,10 +770,11 @@ button { cursor: pointer; }
   font-family: var(--font-body);
   font-size: 15px;
   font-weight: 500;
-  padding: 14px 36px;
+  padding: 14px 40px;
   border-radius: 50px;
   transition: var(--transition);
   margin-top: 8px;
+  white-space: nowrap;
 }
 .btn-sep-cta:hover {
   background: var(--champagne);
@@ -745,19 +787,15 @@ button { cursor: pointer; }
    PROCEDIMENTOS — scroll horizontal por scroll vertical
    ================================================ */
 .procedimentos-scroll-section {
-  height: calc(100vh + (6 - 1.5) * 380px);
   position: relative;
+  background: var(--champagne);
+  padding: 80px 0;
 }
 
 .procedimentos-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow: hidden;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: var(--champagne);
 }
 
 .proc-header {
@@ -776,13 +814,24 @@ button { cursor: pointer; }
 .procedimentos-track {
   display: flex;
   gap: 24px;
-  padding: 0 60px;
-  will-change: transform;
+  padding: 0 60px 40px 60px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  cursor: grab;
+}
+.procedimentos-track.active {
+  cursor: grabbing;
+}
+.procedimentos-track::-webkit-scrollbar {
+  display: none;
 }
 
 .proc-card {
   position: relative;
-  flex: 0 0 300px;
+  flex: 0 0 85vw;
+  max-width: 300px;
   height: 420px;
   border-radius: 16px;
   overflow: hidden;
@@ -793,6 +842,7 @@ button { cursor: pointer; }
   display: flex;
   align-items: center;
   justify-content: center;
+  scroll-snap-align: center;
 }
 
 .proc-card::before {
@@ -833,19 +883,11 @@ button { cursor: pointer; }
 }
 
 .proc-numero {
-  font-family: var(--font-display);
-  font-size: 11px;
-  letter-spacing: 4px;
-  color: rgba(201,169,110,0.6);
-  margin-bottom: 24px;
+  display: none;
 }
 
 .proc-icone {
-  font-size: 22px;
-  color: var(--dourado);
-  margin-bottom: 20px;
-  line-height: 1;
-  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.3));
+  display: none;
 }
 
 .proc-nome {
@@ -1136,6 +1178,39 @@ button { cursor: pointer; }
 
 
 /* ================================================
+   SELO DE TRANSIÇÃO
+   ================================================ */
+.section-transition-seal {
+  width: 100%;
+  position: relative;
+  z-index: 20;
+  display: flex;
+  justify-content: center;
+}
+
+.seal-bg {
+  position: absolute;
+  top: -60px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.98) 0%, rgba(245, 240, 230, 0.92) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 16px 52px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+}
+
+.seal-img {
+  width: 85px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* ================================================
    DEPOIMENTOS
    ================================================ */
 .depoimentos {
@@ -1271,6 +1346,8 @@ button { cursor: pointer; }
   border-radius: 50px;
   transition: var(--transition);
   gap: 8px;
+  position: relative;
+  overflow: hidden;
 }
 .btn-cta-whats:hover {
   background: #BD7A2A;
@@ -1634,7 +1711,8 @@ button { cursor: pointer; }
 }
 
 .casos-slide-especial img {
-  aspect-ratio: 1 / 1;
+  aspect-ratio: auto;
+  height: auto;
   border-radius: 16px 16px 0 0;
 }
 
@@ -1709,16 +1787,17 @@ button { cursor: pointer; }
   text-align: center;
   background: var(--dourado-forte);
   color: white;
-  padding: 16px;
+  padding: 16px 24px;
   border-radius: 50px;
   font-family: 'Jost', sans-serif;
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
+  white-space: nowrap;
 }
 
 .ver-todos-wrap {
-  padding: 32px 20px 0;
+  padding: 32px 20px 80px;
   text-align: center;
 }
 

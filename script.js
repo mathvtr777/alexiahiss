@@ -106,33 +106,57 @@ initComparators();
 
 
 
-/* ── Scroll horizontal por scroll vertical (Procedimentos) ── */
-function initProcedimentosScroll() {
-  const section = document.querySelector('.procedimentos-scroll-section');
-  const track   = document.querySelector('.procedimentos-track');
-  const fill    = document.querySelector('.proc-progress-fill');
-  const atual   = document.querySelector('.proc-counter-atual');
-  const cards   = document.querySelectorAll('.proc-card');
+/* ── Slider de Procedimentos (Drag para Desktop e Swipe Nativo Mobile) ── */
+function initProcedimentosSlider() {
+  const slider = document.querySelector('.procedimentos-track');
+  const fill   = document.querySelector('.proc-progress-fill');
+  const atual  = document.querySelector('.proc-counter-atual');
+  const cards  = document.querySelectorAll('.proc-card');
 
-  if (!section || !track) return;
+  if (!slider) return;
 
-  window.addEventListener('scroll', () => {
-    const rect           = section.getBoundingClientRect();
-    const scrollDistance = track.scrollWidth - window.innerWidth + 80;
-
-    if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
-      const progress = Math.min(1, Math.max(0, -rect.top / (section.offsetHeight - window.innerHeight)));
-      track.style.transform = `translateX(-${progress * scrollDistance}px)`;
-      if (fill)  fill.style.width = (progress * 100) + '%';
-      if (atual) {
-        const index = Math.min(cards.length - 1, Math.floor(progress * cards.length));
-        atual.textContent = String(index + 1).padStart(2, '0');
-      }
+  // Lógica da barra de progresso e contador via rolagem do track itself
+  slider.addEventListener('scroll', () => {
+    if(!slider.scrollWidth) return;
+    const maxScroll = slider.scrollWidth - slider.clientWidth;
+    const progress = Math.min(1, Math.max(0, slider.scrollLeft / maxScroll));
+    if (fill) fill.style.width = (progress * 100) + '%';
+    
+    if (atual && cards.length > 0) {
+      const index = Math.min(cards.length - 1, Math.floor(progress * cards.length));
+      atual.textContent = String(index + 1).padStart(2, '0');
     }
   }, { passive: true });
+
+  // Arrasto com o Mouse no Desktop
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  slider.addEventListener('mousedown', (e) => {
+    isDown = true;
+    slider.classList.add('active');
+    startX = e.pageX - slider.offsetLeft;
+    scrollLeft = slider.scrollLeft;
+  });
+  slider.addEventListener('mouseleave', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
+  slider.addEventListener('mouseup', () => {
+    isDown = false;
+    slider.classList.remove('active');
+  });
+  slider.addEventListener('mousemove', (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - slider.offsetLeft;
+    const walk = (x - startX) * 2; 
+    slider.scrollLeft = scrollLeft - walk;
+  });
 }
 
-initProcedimentosScroll();
+initProcedimentosSlider();
 
 
 /* ── Scroll Reveal ── */
@@ -215,8 +239,8 @@ const procedimentos = [
   {
     nome: 'Toxina Botulínica',
     slides: [
-      { tipo: 'foto', src: 'fotos/toxina botulínica/1.jpeg' },
-      { tipo: 'foto', src: 'fotos/toxina botulínica/2.jpeg' }
+      { tipo: 'foto', src: 'fotos/r3.jpg' },
+      { tipo: 'foto', src: 'fotos/botox.jpeg' }
     ],
     whats: 'Olá! Tenho interesse em: Toxina Botulínica'
   },
@@ -386,3 +410,61 @@ function irParaSlide(index) {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') fecharModal();
 });
+
+/* ── Swipe no Modal de Casos ── */
+(function initModalSwipe() {
+  const track = document.getElementById('casosTrack');
+  if (!track) return;
+
+  let startX = 0;
+  let endX = 0;
+
+  const modalBox = document.querySelector('.casos-modal-box');
+  if(!modalBox) return;
+
+  modalBox.addEventListener('touchstart', e => {
+    startX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  modalBox.addEventListener('touchend', e => {
+    endX = e.changedTouches[0].screenX;
+    handleSwipe();
+  }, { passive: true });
+
+  function handleSwipe() {
+    const threshold = 40; // mínimo de arrasto em px
+    if (endX < startX - threshold) {
+      navCarrossel(1);
+    }
+    if (endX > startX + threshold) {
+      navCarrossel(-1);
+    }
+  }
+})();
+
+/* ── Parallax Suave nas Imagens ── */
+(function initSmoothParallax() {
+  const paralaxes = document.querySelectorAll('.parallax-img');
+  if (!paralaxes.length) return;
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY;
+    paralaxes.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const elementTop = rect.top + scrolled;
+      const speed = parseFloat(el.getAttribute('data-speed')) || 0.1;
+
+      // Só anima se estiver visível
+      if (rect.top < window.innerHeight && rect.bottom > 0) {
+        // Distância do topo da tela à posição natural do elemento
+        const distance = scrolled - elementTop + window.innerHeight;
+        const yPos = distance * speed - (rect.height * speed * 0.5); 
+        if (el.classList.contains('sep-bg-img')) {
+          el.style.transform = `translateY(${yPos}px) scale(1.2)`;
+        } else {
+          el.style.transform = `translateY(${yPos}px)`;
+        }
+      }
+    });
+  }, { passive: true });
+})();
