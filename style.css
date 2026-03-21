@@ -1212,141 +1212,329 @@ button { cursor: pointer; }
 }
 
 /* ================================================
-   DEPOIMENTOS (WHATSAPP CHAT)
+   DEPOIMENTOS (REACT LAYOUT)
    ================================================ */
-#depoimentos {
-  background: var(--champagne);
+.feedback-section {
+  background: var(--branco);
   padding: 100px 0;
   overflow: hidden;
 }
 
-.dep-inner {
-  max-width: 680px;
+.feedback-container {
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 5%;
 }
 
-.dep-tag {
-  font-family: 'Jost', sans-serif;
-  font-size: 10px;
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  color: var(--dourado);
-  margin-bottom: 12px;
-  display: block;
+.feedback-header {
+  text-align: center;
+  margin-bottom: 64px;
 }
 
-.dep-title {
+.feedback-tag {
+  display: inline-block;
+  padding: 4px 16px;
+  margin-bottom: 16px;
+  font-family: 'Jost', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--dourado-forte);
+  background: rgba(201,169,110,0.1);
+  border-radius: 50px;
+}
+
+.feedback-title {
   font-family: var(--font-display);
   font-size: clamp(32px, 5vw, 48px);
-  font-weight: 400;
-  line-height: 1.15;
+  font-weight: 700;
   color: var(--escuro);
-  margin-bottom: 10px;
+  line-height: 1.15;
+  margin-bottom: 16px;
 }
 
-.dep-title em { 
-  font-style: italic; 
-  color: var(--dourado-forte); 
+.feedback-linha {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--champagne), var(--dourado-forte));
+  margin: 0 auto;
+  border-radius: 2px;
 }
 
-.dep-sub {
-  font-family: var(--font-body);
-  font-size: 16px;
-  color: var(--medio);
-  margin-bottom: 40px;
-  font-weight: 300;
-}
-
-/* Container estilo WhatsApp */
-.dep-chat {
-  background: #EAE0D5; 
-  border-radius: 16px;
-  padding: 20px 16px;
+.feedback-split {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 64px;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .feedback-split {
+    flex-direction: row;
+    gap: 80px;
+  }
+}
+
+.feedback-img-col {
+  width: 100%;
+  max-width: 450px;
   position: relative;
-  max-height: 600px;
-  overflow-y: auto;
-  scroll-behavior: smooth;
-  border: 1px solid rgba(201,169,110,0.15);
-  box-shadow: 0 10px 30px rgba(26,18,9,0.05);
+  display: flex;
+  justify-content: center;
+}
+@media (min-width: 1024px) { .feedback-img-col { width: 50%; } }
+
+.feedback-glow-1 {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120%; height: 120%;
+  background: rgba(201,169,110,0.15);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: 0;
 }
 
-/* Header estilo WhatsApp */
-.dep-chat::before {
-  content: 'Dra. Alexia · Medicina Estética';
-  display: block;
-  background: var(--dourado-forte); 
-  color: var(--branco);
-  font-family: 'Jost', sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  padding: 18px 20px;
-  border-radius: 12px 12px 0 0;
-  margin: -20px -16px 16px -16px;
-  letter-spacing: 0.5px;
-  position: sticky;
-  top: -20px;
-  z-index: 2;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+.feedback-glow-2 {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%; height: 80%;
+  background: rgba(201,169,110,0.1);
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 0;
+  animation: pulseGlow 4s infinite alternate;
+}
+@keyframes pulseGlow { 0% { opacity: 0.5; transform: translate(-50%,-50%) scale(1); } 100% { opacity: 1; transform: translate(-50%,-50%) scale(1.1); } }
+
+.feedback-img-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
 }
 
-/* Scrollbar elegante */
-.dep-chat::-webkit-scrollbar { width: 4px; }
-.dep-chat::-webkit-scrollbar-track { background: transparent; }
-.dep-chat::-webkit-scrollbar-thumb { background: rgba(201,169,110,0.5); border-radius: 4px; }
-
-.dep-msg { 
-  display: flex; 
-  max-width: 85%;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+.feedback-img-border {
+  position: absolute;
+  inset: -6px;
+  background: linear-gradient(to top right, var(--champagne), var(--dourado-claro));
+  border-radius: 40px;
+  filter: blur(4px);
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
 }
+.feedback-img-wrap:hover .feedback-img-border { opacity: 1; }
 
-.dep-in { align-self: flex-start; }
+.feedback-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 40px;
+  border: 6px solid var(--branco);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+  transition: transform 0.8s ease;
+}
+.feedback-img-wrap:hover .feedback-img { transform: scale(1.02); }
 
-.dep-bubble {
+.feedback-badge {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
   background: var(--branco);
-  border-radius: 0 12px 12px 12px;
-  padding: 12px 16px 8px;
-  box-shadow: 0 2px 6px rgba(26,18,9,0.05);
-}
-
-.dep-bubble p {
-  font-family: 'Jost', sans-serif;
-  font-size: 14px;
-  font-weight: 300;
-  line-height: 1.55;
-  color: var(--escuro);
-  margin: 0 0 4px;
-}
-
-.dep-meta {
+  padding: 16px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 6px;
+  gap: 12px;
+  border: 1px solid var(--champagne);
+  transition: transform 0.3s ease;
+  z-index: 10;
+}
+@media (max-width: 768px) { .feedback-badge { left: 10px; bottom: 10px; } }
+.feedback-badge:hover { transform: scale(1.05); }
+
+.fb-badge-icon {
+  background: var(--dourado-forte);
+  padding: 10px;
+  border-radius: 12px;
+  color: var(--branco);
+  width: 40px; height: 40px;
 }
 
-.dep-time {
-  font-family: 'Jost', sans-serif;
-  font-size: 10px;
-  color: #999;
-}
+.fb-badge-text p { margin: 0; line-height: 1.2; }
+.fb-top { font-family: 'Jost', sans-serif; font-size: 11px; font-weight: 800; color: var(--escuro); text-transform: uppercase; }
+.fb-bot { font-family: 'Jost', sans-serif; font-size: 10px; color: var(--dourado); font-style: italic; font-weight: 500; }
 
-.dep-check {
-  font-size: 12px;
-  color: var(--dourado-forte); 
-  letter-spacing: -2px; 
-  margin-right: 2px;
+.feedback-carousel-col {
+  width: 100%;
+  position: relative;
+  min-height: 520px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
+@media (min-width: 1024px) { .feedback-carousel-col { width: 50%; min-height: 480px; } }
 
-.dep-msg.visible {
+.fb-slides-wrapper {
+  position: relative;
+  width: 100%;
+  height: 480px; 
+}
+@media (max-width: 768px) { .fb-slides-wrapper { height: 480px; } }
+
+.fb-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateY(30px);
+  pointer-events: none;
+  transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+.fb-slide.active {
   opacity: 1;
   transform: translateY(0);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.fb-card {
+  background: var(--branco);
+  border-radius: 40px;
+  padding: 40px 32px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+  border: 1px solid var(--champagne);
+  width: 100%;
+  position: relative;
+}
+
+.fb-quote {
+  position: absolute;
+  top: 24px; left: 24px;
+  width: 48px; height: 48px;
+  color: rgba(201,169,110,0.15);
+}
+
+.fb-stars {
+  color: var(--dourado);
+  font-size: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.fb-text {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--escuro);
+  line-height: 1.6;
+  font-style: italic;
+  font-weight: 300;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+}
+
+.fb-author-row {
+  border-top: 1px solid var(--champagne);
+  padding-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fb-author-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.fb-heart {
+  width: 32px; height: 32px;
+  background: rgba(201,169,110,0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dourado-forte);
+}
+.fb-heart svg { width: 16px; height: 16px; }
+
+.fb-name {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--escuro);
+}
+
+.fb-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fb-tag {
+  font-family: 'Jost', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--dourado-forte);
+  background: rgba(201,169,110,0.1);
+  padding: 6px 12px;
+  border-radius: 50px;
+  border: 1px solid rgba(201,169,110,0.2);
+}
+
+.fb-nav {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 24px;
+  position: relative;
+  z-index: 10;
+}
+@media (max-width: 1024px) { .fb-nav { justify-content: center; } }
+
+.fb-btn {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,169,110,0.3);
+  background: transparent;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--dourado);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+.fb-btn:hover {
+  background: var(--dourado-forte);
+  color: white;
+  border-color: var(--dourado-forte);
+}
+
+.fb-dots {
+  display: flex;
+  gap: 8px;
+}
+.fb-dot {
+  width: 8px; height: 6px;
+  background: var(--champagne);
+  border-radius: 10px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+.fb-dot.active {
+  width: 32px;
+  background: var(--dourado-forte);
 }
 
 
@@ -1778,21 +1966,24 @@ button { cursor: pointer; }
 .casos-slide-especial {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .casos-slide-especial img {
+  width: 100%;
   aspect-ratio: auto;
   height: auto;
-  border-radius: 16px 16px 0 0;
+  max-height: none;
+  object-fit: cover;
+  border-radius: 16px;
 }
 
 .casos-slide-texto {
   background: var(--champagne);
-  border-radius: 0 0 16px 16px;
-  padding: 20px 20px 24px;
-  margin: 0 24px;
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin: 16px 0 0;
   border: 1px solid rgba(201,169,110,0.2);
-  border-top: none;
 }
 
 .casos-slide-texto p {

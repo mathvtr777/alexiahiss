@@ -469,27 +469,59 @@ document.addEventListener('keydown', e => {
   }, { passive: true });
 })();
 
-/* ── Depoimentos — entrada animada dos balões (IntersectionObserver) ── */
-(function initDepoimentosObserver() {
-  const depMsgs = document.querySelectorAll('.dep-msg');
-  const depChat = document.querySelector('.dep-chat');
-  const section = document.getElementById('depoimentos');
+/* ── Carrossel de Feedbacks React Layout ── */
+let fbIndex = 0;
+let fbPaused = false;
+let fbTimer;
 
-  if (depChat && depMsgs.length && section) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          depMsgs.forEach((msg, i) => {
-            setTimeout(() => {
-              msg.classList.add('visible');
-              if (depChat) depChat.scrollTop = depChat.scrollHeight;
-            }, i * 250); 
-          });
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
+function initFbCarousel() {
+  const slides = document.querySelectorAll('.fb-slide');
+  const dotsContainer = document.getElementById('fbDots');
+  if (!slides.length || !dotsContainer) return;
 
-    observer.observe(section);
-  }
-})();
+  dotsContainer.innerHTML = '';
+  slides.forEach((_, i) => {
+    const dot = document.createElement('div');
+    dot.className = 'fb-dot' + (i === 0 ? ' active' : '');
+    dot.onclick = () => setFbSlide(i);
+    dotsContainer.appendChild(dot);
+  });
+
+  startFbTimer();
+}
+
+function setFbSlide(i) {
+  const slides = document.querySelectorAll('.fb-slide');
+  const dots = document.querySelectorAll('.fb-dot');
+  if (!slides.length) return;
+
+  slides.forEach(s => s.classList.remove('active'));
+  dots.forEach(d => d.classList.remove('active'));
+
+  fbIndex = (i + slides.length) % slides.length;
+  
+  slides[fbIndex].classList.add('active');
+  dots[fbIndex].classList.add('active');
+  
+  resetFbTimer();
+}
+
+function navFb(dir) {
+  setFbSlide(fbIndex + dir);
+}
+
+function startFbTimer() {
+  if(fbTimer) clearInterval(fbTimer);
+  fbTimer = setInterval(() => {
+    if (!fbPaused) navFb(1);
+  }, 6000);
+}
+
+function resetFbTimer() {
+  startFbTimer();
+}
+
+function pauseFb() { fbPaused = true; }
+function resumeFb() { fbPaused = false; }
+
+initFbCarousel();

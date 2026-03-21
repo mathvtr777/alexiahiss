@@ -427,81 +427,144 @@
   </div>
 
   <!-- =============================================
-       SEÇÃO 6 — DEPOIMENTOS (WHATSAPP)
+       SEÇÃO 6 — DEPOIMENTOS (NOVO REACT LAYOUT)
   ============================================= -->
-  <section id="depoimentos">
-    <div class="dep-inner">
-      <div class="section-header reveal">
-        <span class="dep-tag">DEPOIMENTOS</span>
-        <h2 class="dep-title">O que dizem<br><em>minhas pacientes</em></h2>
-        <p class="dep-sub">Mensagens reais de pacientes reais.</p>
+  <section id="depoimentos" class="feedback-section">
+    <div class="container feedback-container">
+      <div class="feedback-header reveal">
+        <span class="feedback-tag">Testemunhos Reais</span>
+        <h2 class="feedback-title">Confiança em cada detalhe</h2>
+        <div class="feedback-linha"></div>
       </div>
 
-      <div class="dep-chat">
-
-        <div class="dep-msg dep-in">
-          <div class="dep-bubble">
-            <p>Eu tô chocada com a naturalidade desse procedimento que, ainda com edemas, já se mostra natural e sutil. Parabéns, amiga... Que profissional de mão cheia vc é! Apenas continue.</p>
-            <div class="dep-meta"><span class="dep-time">21:33</span><span class="dep-check">✓✓</span></div>
+      <div class="feedback-split reveal">
+        <div class="feedback-img-col">
+          <div class="feedback-glow-1"></div>
+          <div class="feedback-glow-2"></div>
+          <div class="feedback-img-wrap">
+            <div class="feedback-img-border"></div>
+            <img src="fotos/dr4.jpeg" alt="Dra. Alexia" class="feedback-img">
+            <div class="feedback-badge">
+              <div class="fb-badge-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              </div>
+              <div class="fb-badge-text">
+                <p class="fb-top">Referência em</p>
+                <p class="fb-bot">Resultados Naturais</p>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="dep-msg dep-in">
-          <div class="dep-bubble">
-            <p>Não existe pessoa mais medrosa pra procedimento que eu... e a certeza com que vc domina o que faz me tranquilizou muito</p>
-            <div class="dep-meta"><span class="dep-time">21:33</span><span class="dep-check">✓✓</span></div>
-          </div>
-        </div>
+        <div class="feedback-carousel-col" onmouseenter="pauseFb()" onmouseleave="resumeFb()">
+           <div class="fb-slides-wrapper" id="fbSlidesContainer">
+             
+             <!-- Sl 1 -->
+             <div class="fb-slide active">
+               <div class="fb-card">
+                 <svg class="fb-quote" viewBox="0 0 24 24" fill="currentColor"><path d="M14 18l0-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10h-10zm-14 0l0-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10h-10z"/></svg>
+                 <div class="fb-stars">★★★★★</div>
+                 <p class="fb-text">"Eu tô chocada com a naturalidade desse procedimento que, ainda com edemas, já se mostra natural e sutil. Parabéns, amiga... Que profissional de mão cheia vc é! Apenas continue. Não existe pessoa mais medrosa pra procedimento que eu... e a certeza com que vc domina o que faz me tranquilizou muito."</p>
+                 <div class="fb-author-row">
+                   <div class="fb-author-info">
+                     <div class="fb-heart"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                     <span class="fb-name">Paciente Satisfeita</span>
+                   </div>
+                   <div class="fb-tags"><span class="fb-tag">Naturalidade</span><span class="fb-tag">Segurança</span></div>
+                 </div>
+               </div>
+             </div>
 
-        <div class="dep-msg dep-in">
-          <div class="dep-bubble">
-            <p>Eu amei muito seu atendimento. O lábio está desinchando e ficando a coisa mais linda do mundo 🥰🥰</p>
-            <div class="dep-meta"><span class="dep-time">17:50</span><span class="dep-check">✓✓</span></div>
-          </div>
-        </div>
+             <!-- Sl 2 -->
+             <div class="fb-slide">
+               <div class="fb-card">
+                 <svg class="fb-quote" viewBox="0 0 24 24" fill="currentColor"><path d="M14 18l0-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10h-10zm-14 0l0-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10h-10z"/></svg>
+                 <div class="fb-stars">★★★★★</div>
+                 <p class="fb-text">"Alexa, obrigadaaaaa pelo trabalho impecável! Amei o resultado da boca e do mento, ficou exatamente como eu queria. Você tem mãos de fada, não doeu nadinhaaa. Com certeza ganhou uma paciente fiel ❤️❤️❤️"</p>
+                 <div class="fb-author-row">
+                   <div class="fb-author-info">
+                     <div class="fb-heart"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                     <span class="fb-name">Paciente Fiel</span>
+                   </div>
+                   <div class="fb-tags"><span class="fb-tag">Mãos de fada</span><span class="fb-tag">Sem dor</span></div>
+                 </div>
+               </div>
+             </div>
 
-        <div class="dep-msg dep-in">
-          <div class="dep-bubble">
-            <p>Dra. Alexia eu nunca senti segurança para entregar meu rosto a nenhuma clínica para esse tipo de procedimento. Mas você me passou muita segurança nos detalhes e compreendeu meu desejo. Gostei muito, pra dizer a verdade amei, você foi delicada na anestesia que quase não senti, me orientou passo a passo o que eu ia sentir, e aplicou milimetricamente o procedimento. Recomendo muito seu trabalho.</p>
-            <div class="dep-meta"><span class="dep-time">15:26</span><span class="dep-check">✓✓</span></div>
-          </div>
-        </div>
+             <!-- Sl 3 -->
+             <div class="fb-slide">
+               <div class="fb-card">
+                 <svg class="fb-quote" viewBox="0 0 24 24" fill="currentColor"><path d="M14 18l0-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10h-10zm-14 0l0-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10h-10z"/></svg>
+                 <div class="fb-stars">★★★★★</div>
+                 <p class="fb-text">"Dra. Alexia eu nunca senti segurança para entregar meu rosto a nenhuma clínica... Mas você me passou muita segurança nos detalhes e compreendeu meu desejo. Gostei muito, pra dizer a verdade amei, você foi delicada na anestesia que quase não senti..."</p>
+                 <div class="fb-author-row">
+                   <div class="fb-author-info">
+                     <div class="fb-heart"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                     <span class="fb-name">Paciente Segura</span>
+                   </div>
+                   <div class="fb-tags"><span class="fb-tag">Confiança</span><span class="fb-tag">Delicadeza</span></div>
+                 </div>
+               </div>
+             </div>
 
-        <div class="dep-msg dep-in">
-          <div class="dep-bubble">
-            <p>Alexa, obrigadaaaa pelo trabalho impecável! Amei o resultado da boca e do mento, ficou exatamente como eu queria. Você tem mãos de fada, não doeu nadinhaaa. Com certeza ganhou uma paciente fiel 💖💔💖</p>
-            <div class="dep-meta"><span class="dep-time">16:45</span><span class="dep-check">✓✓</span></div>
-          </div>
-        </div>
+             <!-- Sl 4 -->
+             <div class="fb-slide">
+               <div class="fb-card">
+                 <svg class="fb-quote" viewBox="0 0 24 24" fill="currentColor"><path d="M14 18l0-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10h-10zm-14 0l0-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10h-10z"/></svg>
+                 <div class="fb-stars">★★★★★</div>
+                 <p class="fb-text">"O resultado ficou extremamente harmonioso, natural e conseguiu corrigir assimetrias que me incomodavam há muito tempo. Meu nariz ficou impecável. A boca também ficou linda... Dá para perceber o cuidado e olhar artístico que você tem."</p>
+                 <div class="fb-author-row">
+                   <div class="fb-author-info">
+                     <div class="fb-heart"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                     <span class="fb-name">Paciente Rinomodelação</span>
+                   </div>
+                   <div class="fb-tags"><span class="fb-tag">Harmonia</span><span class="fb-tag">Olhar Artístico</span></div>
+                 </div>
+               </div>
+             </div>
 
-        <div class="dep-msg dep-in">
-          <div class="dep-bubble">
-            <p>Obrigada viu amore!!! Amei os resultados, estou amando me olhar no espelho, você é uma profissional e pessoa incrível!</p>
-            <div class="dep-meta"><span class="dep-time">19:52</span><span class="dep-check">✓✓</span></div>
-          </div>
-        </div>
+             <!-- Sl 5 -->
+             <div class="fb-slide">
+               <div class="fb-card">
+                 <svg class="fb-quote" viewBox="0 0 24 24" fill="currentColor"><path d="M14 18l0-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10h-10zm-14 0l0-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10h-10z"/></svg>
+                 <div class="fb-stars">★★★★★</div>
+                 <p class="fb-text">"Depois de ter passado por uma experiência ruim no passado... confiar em você foi a melhor decisão. O resultado do meu bigode chinês, preenchimento labial e do queixo superou tudo. Naturalidade, elegância... me sinto linda e confiante."</p>
+                 <div class="fb-author-row">
+                   <div class="fb-author-info">
+                     <div class="fb-heart"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                     <span class="fb-name">Paciente Confiante</span>
+                   </div>
+                   <div class="fb-tags"><span class="fb-tag">Autoestima</span><span class="fb-tag">Superação</span></div>
+                 </div>
+               </div>
+             </div>
 
-        <div class="dep-msg dep-in">
-          <div class="dep-bubble">
-            <p>Doutora eu primeiro quero enaltecer seu cuidado comigo! Sua atenção... cheguei nervosa mas você me fez sentir em casa, parece q te conheço a anos... foi uma experiência única, e detalhe: sem dor nenhuma 🥹🥹 eu to me amando muito e pode ter certeza que eu voltarei pra fazer inúmeros procedimentos com você ❤</p>
-            <div class="dep-meta"><span class="dep-time">22:40</span><span class="dep-check">✓✓</span></div>
-          </div>
-        </div>
+             <!-- Sl 6 -->
+             <div class="fb-slide">
+               <div class="fb-card">
+                 <svg class="fb-quote" viewBox="0 0 24 24" fill="currentColor"><path d="M14 18l0-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10h-10zm-14 0l0-7.4c0-5.7 3.7-9.6 9-10.6l1 2.2c-2.4.9-4 3.6-4 5.8h4v10h-10z"/></svg>
+                 <div class="fb-stars">★★★★★</div>
+                 <p class="fb-text">"Doutora eu primeiro quero enaltecer seu cuidado comigo! Sua atenção... e segundo o excelente trabalho, cheguei nervosa mas você me fez sentir em casa. Foi uma experiência única, e detalhe: sem dor nenhuma 🥹🥹 eu to me amando muito."</p>
+                 <div class="fb-author-row">
+                   <div class="fb-author-info">
+                     <div class="fb-heart"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>
+                     <span class="fb-name">Paciente Grata</span>
+                   </div>
+                   <div class="fb-tags"><span class="fb-tag">Atendimento</span><span class="fb-tag">Sem dor</span></div>
+                 </div>
+               </div>
+             </div>
 
-        <div class="dep-msg dep-in">
-          <div class="dep-bubble">
-            <p>Dra. Alexia, eu precisava te escrever para agradecer e parabenizar pelo trabalho incrível que você fez na minha rinomodelação e na boca. Fiquei simplesmente impressionada com o resultado! O resultado ficou extremamente harmonioso, natural e conseguiu corrigir assimetrias que me incomodavam há muito tempo. Obrigada pelo profissionalismo, atenção e carinho em cada detalhe. 🙏🙏🫶🫶🌷🌷</p>
-            <div class="dep-meta"><span class="dep-time">19:53</span><span class="dep-check">✓✓</span></div>
-          </div>
+           </div>
+           
+           <div class="fb-nav">
+             <button class="fb-btn" onclick="navFb(-1)" aria-label="Anterior">&#10094;</button>
+             <div class="fb-dots" id="fbDots">
+               <!-- JS injeta os dots -->
+             </div>
+             <button class="fb-btn" onclick="navFb(1)" aria-label="Próximo">&#10095;</button>
+           </div>
         </div>
-
-        <div class="dep-msg dep-in">
-          <div class="dep-bubble">
-            <p>Depois de ter passado por uma experiência ruim com esse mesmo procedimento no passado, eu confesso que carregar o medo foi inevitável... mas confiar em você foi a melhor decisão que eu poderia ter tomado. Você não entrega só técnica, você entrega segurança, cuidado, responsabilidade e verdade. Você é absurda no que faz.</p>
-            <div class="dep-meta"><span class="dep-time">21:21</span><span class="dep-check">✓✓</span></div>
-          </div>
-        </div>
-
       </div>
     </div>
   </section>
